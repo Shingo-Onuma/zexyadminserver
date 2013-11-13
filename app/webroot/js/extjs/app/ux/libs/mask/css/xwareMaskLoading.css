@@ -1,0 +1,4 @@
+.wd-xware-mask-loading-component{background: #000000;width:100%;height:100%;position:absolute;z-index:1000;top:0px;opacity: 0.4;filter:alpha(opacity=40);}
+.wd-content-mask-loading{position: absolute;border: 2px solid green;padding: 8px;background: #fff;border-radius:3px;z-index: 1000 !important;}
+.wd-content-mask-loading .wd-ico-loading{background: url('../images/loading_small.gif') no-repeat;width: 16px;height: 16px;background-position: left center;margin-top: 1px;margin-right: 4px;float: left;}
+.wd-content-mask-loading .wd-ico-message{color: blue;font-size: 13px !important;float: left;}

@@ -1,0 +1,42 @@
+#xware-notify-msg {
+	position: absolute;
+	right: 5px;
+	bottom: 85px;
+	width: 300px;
+	z-index: 20000;
+}
+#xware-notify-topmsg {
+	position: absolute;
+	left: 40%;
+	top: 5px;
+	width: 350px;
+	z-index: 20000;
+}
+#xware-notify-msg .wd-msg-notify,#xware-notify-topmsg .wd-msg-notify{
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	border: 1px solid #4d8fcb;
+	margin-top: 2px;
+	padding: 10px 15px;
+	color: #555;
+	position: relative;
+}
+/*#xware-notify-topmsg .wd-msg-notify{
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	border: 1px;
+	margin-top: 2px;
+	padding: 10px 15px;
+	color: #555;
+}*/
+#xware-notify-msg .wd-xware-notify-info,#xware-notify-topmsg .wd-xware-notify-info{background-color:#d1e4f3;border-color:#4d8fcb;color:#3A87AD;}
+
+#xware-notify-msg .wd-xware-notify-error,#xware-notify-topmsg .wd-xware-notify-error{background-color:#fccac1;border-color:#eb5439;color: #B94A48}
+
+#xware-notify-msg .wd-xware-notify-message,#xware-notify-topmsg .wd-xware-notify-message{background-color:#ffe9ad;border-color:#f9b725;color: #C09853}
+
+#xware-notify-msg .wd-xware-notify-success,#xware-notify-topmsg .wd-xware-notify-success{background-color:#effeb9;border-color:#98c700;color: #468847;}
+
+#xware-notify-msg .wd-notify-title,#xware-notify-topmsg .wd-notify-title{font-weight: bold;padding-bottom: 5px;font-size: 14px;}
+#xware-notify-msg .wd-notify-message,#xware-notify-topmsg .wd-notify-message{font-weight: normal;text-align: left;font-size: 12px;}
+#xware-notify-msg .wd-notify-close,#xware-notify-topmsg .wd-notify-close{position: absolute;top: 5px;right: 5px;width: 16px;height: 16px;background: url('../images/close.png') no-repeat;}
