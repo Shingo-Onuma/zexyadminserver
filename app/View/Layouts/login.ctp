@@ -23,12 +23,12 @@
 
 			<header class="navbar navbar-inverse navbar-fixed-top">
 				<div class="navbar-inner">
-					<div class="container-fluid">
-						<?php echo $this->Html->link(
+					<div class="container-fluid"> <a href="#" class="brand"> Zexy Administration Login </a>
+						<?php /* echo $this->Html->link(
 							__d('croogo', 'Back to') . ' ' . Configure::read('Site.title'),
 							'/',
 							array('class' => 'brand')
-						); ?>
+						); */ ?>
 					</div>
 				</div>
 			</header>

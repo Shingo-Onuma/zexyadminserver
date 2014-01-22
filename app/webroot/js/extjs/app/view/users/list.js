@@ -85,7 +85,76 @@ Ext.define('ZEXY.view.users.list', {
 			emptyMsg	: 'No topics to display'
 		});
 
+		me.listeners = {
+			afterrender: function() {
+				var container = me,
+					dockedItems = container.dockedItems,
+					items = dockedItems.items;
+
+				if (items && items.length > 0) {
+					for (var i = 0; i < items.length; i++) {
+						if (items[i].xtype == 'toolbar') {
+							me.callbackAddItemToolbar(items[i]);
+							//break;
+						};
+					};
+				};
+			},
+		};
+
 		me.callParent();
+	},
+
+	callbackAddItemToolbar: function(toolbar) {
+		var me = this;
+
+		var items = toolbar.items;
+
+		me.toolbarItems = toolbar;
+
+		// if (items.items && items.items[0]) {
+		// 	items.items[0].hide();
+		// };
+
+		// if (items.items && items.items[3]) {
+		// 	items.items[3].setText(Translation['Frequency Keywords']);
+		// };
+
+		me.recentSearch = [];
+
+		toolbar.insert(2, {
+			width	: 80,
+			height	: 25,
+			xtype	: 'button',
+			text	: 'Search',
+			handler	: function(e){
+
+				me.handleSearch(this.text);
+			}
+		});
+	},
+
+	handleSearch: function(term){
+		console.log('handling search');
+		var me = this;
+
+		var itemTextField = me.toolbarItems.items.items[1];
+
+		if (itemTextField.name == "searchField" && itemTextField.xtype == "textfield") {
+			var value = itemTextField.getRawValue();
+
+			var getStore = Ext.getStore("Users");
+			var store = getStore.load({
+				scope	: me,
+				params	: {
+					keywork	: value
+				},
+				callback: function(records, operation, success) {
+					//me.addSearchTerm(term);
+					console.log(records);
+				}
+			});
+		};
 	},
 
 	addLocation: function(){

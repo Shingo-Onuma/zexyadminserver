@@ -22,46 +22,45 @@ Ext.define('ZEXY.view.typepopup', {
 		}
 
 		me.items = [
-			
-				{
-					xtype:"textfield",
-					fieldLabel:"Id",
-					labelWidth: 30,
-					width: '100%',
-					name:'id',
-					value: me.jsonData.id,
-					listeners:{
-						blur:function(){
-							me.jsonData[this.name] = this.rawValue;
-						}
+			{
+				xtype:"textfield",
+				fieldLabel:"Id",
+				labelWidth: 30,
+				width: '100%',
+				name:'id',
+				value: me.jsonData.id,
+				listeners:{
+					blur:function(){
+						me.jsonData[this.name] = this.rawValue;
 					}
-				},
-				{
-					xtype:"textfield",
-					fieldLabel:"Title",
-					labelWidth: 30,
-					width: '100%',
-					name:'title',
-					value: me.jsonData.title,
-					listeners:{
-						blur:function(){
-							me.jsonData[this.name] = this.rawValue;
-						}
+				}
+			},
+			{
+				xtype:"textfield",
+				fieldLabel:"Title",
+				labelWidth: 30,
+				width: '100%',
+				name:'title',
+				value: me.jsonData.title,
+				listeners:{
+					blur:function(){
+						me.jsonData[this.name] = this.rawValue;
 					}
-				},
-				{
-					xtype:"textareafield",
-					fieldLabel:"Description",
-					labelWidth: 30,
-					width: '100%',
-					name:'description',
-					value: me.jsonData.description,
-					listeners:{
-						blur:function(){
-							me.jsonData[this.name] = this.rawValue;
-						}
+				}
+			},
+			{
+				xtype:"textareafield",
+				fieldLabel:"Description",
+				labelWidth: 30,
+				width: '100%',
+				name:'description',
+				value: me.jsonData.description,
+				listeners:{
+					blur:function(){
+						me.jsonData[this.name] = this.rawValue;
 					}
-				},
+				}
+			},
 			
 		];
 

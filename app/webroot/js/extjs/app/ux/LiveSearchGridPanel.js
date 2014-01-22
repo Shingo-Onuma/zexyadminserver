@@ -73,7 +73,7 @@ Ext.define('Ext.ux.LiveSearchGridPanel', {
                  }
             }, 
             '-', //'Frequency Keywords'
-
+            /*
             {
                 xtype: 'button',
                 text: '&lt;',
@@ -100,10 +100,11 @@ Ext.define('Ext.ux.LiveSearchGridPanel', {
                 handler: me.caseSensitiveToggle,
                 scope: me
             }, 'Case sensitive','-',
+            */
             {
                 xtype: 'button',
-                text: 'Add Location',
-                handler: me.addLocation
+                text: 'Add User',
+                handler: me.addUser
             }
         ];
 

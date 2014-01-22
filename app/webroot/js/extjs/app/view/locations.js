@@ -86,7 +86,54 @@ Ext.define('ZEXY.view.locations', {
 			emptyMsg	: 'No topics to display'
 		});
 
+		me.listeners = {
+			afterrender: function() {
+				var container = me,
+					dockedItems = container.dockedItems,
+					items = dockedItems.items;
+
+				if (items && items.length > 0) {
+					for (var i = 0; i < items.length; i++) {
+						if (items[i].xtype == 'toolbar') {
+							me.callbackAddItemToolbar(items[i]);
+							//break;
+						};
+					};
+				};
+			},
+		};
+
 		me.callParent();
+	},
+
+	callbackAddItemToolbar: function(toolbar) {
+		var me = this;
+
+		var items = toolbar.items;
+
+		me.toolbarItems = toolbar;
+
+		if (items.items && items.items[0]) {
+			items.items[0].hide();
+		};
+
+		if (items.items && items.items[3]) {
+			items.items[3].setText(Translation['Frequency Keywords']);
+		};
+
+		me.recentSearch = [];
+
+		toolbar.insert(2, {
+			width	: 80,
+			height	: 25,
+			xtype	: 'button',
+			text	: Translation['Search'],
+			handler	: Ext.bind(me.handleSearch, me)
+		});
+	},
+
+	handleSearch: function(){
+		console.log('handling search');
 	},
 
 	addLocation: function(){

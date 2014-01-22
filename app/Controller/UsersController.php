@@ -58,10 +58,37 @@ class UsersController extends AppController {
 		$this->_page 	= isset($this->request->query['page']) 	? $this->request->query['page'] 	: 1;
 		$this->_limit 	= isset($this->request->query['limit']) ? $this->request->query['limit'] 	: 10;
 
-		$this->Paginator->settings = array(
-	        'limit' => $this->_limit,
-			'page' =>$this->_page
-	    );
+		//print_r($this->request);
+
+		if (isset($this->request->query['keywork'])) {
+			$keywork = $this->request->query['keywork'];
+			$this->Paginator->settings = array(
+				'conditions' => array(
+					'OR' => array(
+						'username LIKE' => '%' . $keywork .'%',
+						'email LIKE' => '%' . $keywork . '%'
+					)
+				),
+		        'limit' => $this->_limit,
+				'page' =>$this->_page
+		    );
+		    $count = (string)$this->ZUser->find('count', array(
+		    	'conditions' => array(
+					'OR' => array(
+						'username LIKE' => '%' . $keywork .'%',
+						'email LIKE' => '%' . $keywork . '%'
+					)
+				),
+		    ));
+		}else{
+			$this->Paginator->settings = array(
+		        'limit' => $this->_limit,
+				'page' =>$this->_page
+		    );
+		    $count = (string)$this->ZUser->find('count');
+		}
+
+		
 
 		$users = $this->paginate('ZUser');
 
@@ -71,7 +98,8 @@ class UsersController extends AppController {
 			$results['data'][] = $user['ZUser'];
 		}
 
-		$count = (string)$this->ZUser->find('count');
+
+		
 		$results['total'] = $count;
 
 		$this->set(compact('results'));
